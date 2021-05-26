@@ -1,0 +1,35 @@
+<div>
+    <ion-row>
+        <ion-col class="center">
+            <h1>Mes listes</h1>
+        </ion-col>
+        <ion-col class="center">
+            <br>
+            <ion-button shape="round" (click)="openModal()" color="light">
+                <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-list>
+        <ion-item-sliding>
+            <ion-card *ngFor="let liste of listes">
+                <ion-item>
+                    <ion-icon *ngIf="liste.payload.doc.data().partage == true" name="share-social-outline"></ion-icon>
+                    <ion-label>{{liste.payload.doc.data().name}}</ion-label>
+                    <ion-button (click)="presentActionSheet(liste)">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </ion-button>
+                </ion-item>
+                <ion-card-content>
+                    <ion-slides [options]="slideOpts" id="sliders">
+                        <ion-slide *ngFor="let movie of liste.payload.doc.data().films">
+                            <button (click)="optionOnFilms(movie)">
+                                <ion-img [src]="'http://image.tmdb.org/t/p/w500'+movie.poster_path"></ion-img>
+                            </button>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-card-content>
+            </ion-card>
+        </ion-item-sliding>
+    </ion-list>
+</div>

@@ -1,0 +1,18 @@
+<ion-slides #mySlider [options]="slideOpts" id="sliders">
+    <ion-slide *ngFor="let movie of latestMovies">
+        <ion-card *ngIf="movie.poster_path">
+            <ion-card-header>
+                <ion-img [src]="'http://image.tmdb.org/t/p/w500'+movie.poster_path"></ion-img>
+                <ion-card-subtitle *ngIf="movie.title.length<20">{{movie.title}}</ion-card-subtitle>
+            </ion-card-header>
+        </ion-card>
+    </ion-slide>
+</ion-slides>
+<ion-row>
+    <ion-col>
+        <ion-button expand="full" (click)="openCinema()"> Cinema</ion-button>
+    </ion-col>
+    <ion-col>
+        <ion-button expand="full" (click)="openMaison()"> Maison</ion-button>
+    </ion-col>
+</ion-row>

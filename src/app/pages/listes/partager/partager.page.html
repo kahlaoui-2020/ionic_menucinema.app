@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Partager la liste</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="emailRecherche" (ionChange)="filterEmails(emailRecherche)" placeholder="Chercher un mail">
+  </ion-searchbar>
+  <ion-list *ngFor="let email of emailsRecherches">
+    <ion-item (click)='giveAccess(email)'>{{email.payload.doc.data().nom}}</ion-item>
+  </ion-list>
+</ion-content>

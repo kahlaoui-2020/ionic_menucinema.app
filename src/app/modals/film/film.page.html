@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>MENU CINEMA</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <img [src]="'http://image.tmdb.org/t/p/w500/'+currentMovie.poster_path">
+            <ion-card-title>
+                {{currentMovie.title}}
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-label>{{currentMovie.overview}} </ion-label>
+            <ion-row>
+                <ion-col>
+                    <ion-button fill="solid" expand="full" (click)="dismissModal()">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="solid" expand="full" (click)="addMovie()" color="success">
+                        <ion-icon name="add-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+                <ion-col *ngIf="isInList" >
+                    <ion-button fill="solid" expand="full" (click)="removeMovieInList()" color="danger">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+                <ion-col *ngIf="providerMovie">
+                    <a [href]="providerMovie">
+                        <ion-button fill="outline" expand="full">
+                            <ion-icon name="planet-outline"></ion-icon>
+                        </ion-button>
+                    </a>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

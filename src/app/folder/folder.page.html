@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-menu-button color="dark" *ngIf="isAuth">
+                <ion-avatar class="img-box">
+                    <img [src]="urlPhoto">
+                </ion-avatar>
+            </ion-menu-button>
+            <ion-button *ngIf="!isAuth" (click)="auth()">
+                <ion-icon src="assets/account_circle-24px.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>MENU CINEMA</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="folder === 'home'">
+        <app-home></app-home>
+    </div>
+    <div *ngIf="folder=== 'cinema'">
+        <app-cinema></app-cinema>
+    </div>
+    <div *ngIf="folder === 'maison'">
+        <app-maison></app-maison>
+    </div>
+    <div *ngIf="folder=== 'listes'">
+        <app-list></app-list>
+    </div>
+    <div *ngIf="folder === 'profile'">
+        <app-profile></app-profile>
+    </div>
+</ion-content>
+<div *ngIf="folder!=='home'" id="back">
+    <ion-button (click)="backTo()" expand="full" slot="start">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+</div>

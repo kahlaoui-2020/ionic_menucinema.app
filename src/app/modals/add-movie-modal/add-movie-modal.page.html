@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Choisir la liste</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">
+                <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-list *ngFor="let list of lists">
+        <ion-row>
+            <ion-col>
+                <ion-button fill="clear" expand="full" (click)="addMovie(list)">
+                    {{list.payload.doc.data().name}}
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+</ion-content>

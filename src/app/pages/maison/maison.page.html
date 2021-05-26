@@ -1,0 +1,20 @@
+<ion-grid>
+    <ion-row id="recherche">
+        <ion-col size="12">
+            <ion-button expand="full" color="secondary" fill="clear" (click)="moreMovies()">Plus de films</ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-searchbar [(ngModel)]="movieTitle" (ionChange)="filterMovies(movieTitle)" placeholder="Search movie"
+            id="searchBar"></ion-searchbar>
+        <ion-col *ngFor="let movie of movieFilters" size="6">
+            <ion-card>
+                <button (click)="openModal(movie)" id="btnModal">
+                    <ion-card-content>
+                        <img [src]="'http://image.tmdb.org/t/p/w500/'+movie.poster_path">
+                    </ion-card-content>
+                </button>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>

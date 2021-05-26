@@ -1,0 +1,25 @@
+#center {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.container {
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+p,
+h3 {
+
+  font-family: Cavea, serif;
+
+}
+
+.img-box {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+}

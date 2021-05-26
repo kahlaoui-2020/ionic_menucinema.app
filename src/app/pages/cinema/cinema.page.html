@@ -1,0 +1,24 @@
+<ion-grid>
+    <ion-row id="recherche">
+        <ion-datetime #selected display-format="DD/MM/YYYY" picker-format="DD MM YYYY"
+            (ionChange)="changeSelectedDate(selected.value)" value="2021-01-01">
+        </ion-datetime>
+    </ion-row>
+    <ion-row>
+        <ion-col *ngFor="let movie of moviesFilter" size="6">
+            <ion-card>
+                <ion-card-content>
+                    <button (click)="openModal(movie)" id="btnModal">
+                        <ion-label *ngIf="movie.original_title.length>15" id="titleLabel">
+                            {{movie.original_title}}
+                        </ion-label>
+                        <ion-label *ngIf="movie.original_title.length<15" class="titleLabel">
+                            {{movie.original_title}}
+                        </ion-label>
+                        <img [src]="'http://image.tmdb.org/t/p/w500/'+movie.poster_path">
+                    </button>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>

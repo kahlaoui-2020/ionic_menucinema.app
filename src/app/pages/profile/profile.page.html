@@ -1,0 +1,20 @@
+<ion-header>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card class="card-background-page">
+    <ion-card-header>
+      <ion-title id="center"> Mon Profil</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="center">
+        <img class="img-box" src="{{user.photo}}" />
+        <p>{{user.nom}}</p>
+        <p>{{user.prenom}}</p>
+        <p>{{user.email}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <div class="container">
+    <ion-button class="container" color="danger" (click)="deleteProfil()">Cloturer compte</ion-button>
+  </div>
+</ion-content>
